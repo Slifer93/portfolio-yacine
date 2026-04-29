@@ -1039,7 +1039,7 @@
           <p style="margin-top: 1rem; color: var(--muted);" data-i18n="contact_text">Une fois que ce formulaire sera envoyé, il se conformera immédiatement aux lois de confidentialité des pays suivants : France / Suisse.</p>
 
           <!-- Formulaire -->
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/yac.aitsaid@gmail.com" method="POST">
 
             <!-- Ligne nom + email -->
             <div class="form-row">
@@ -1052,6 +1052,12 @@
 
             <!-- Message -->
             <textarea id="message" name="message" data-i18n-placeholder="message_placeholder" placeholder="Message" required></textarea>
+            
+            <!-- Reception dans ma boîte mail -->
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio de Yacine">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://slifer93.github.io/portfolio-yacine/">
 
             <!-- Bouton envoyer -->
             <button class="btn btn-primary" type="submit" data-i18n="send_btn">Envoyer</button>
@@ -1345,8 +1351,7 @@
        ---------------------------------------------------------
        Ouvre le client mail avec les infos remplies
     ========================================================= */
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+    
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -1368,8 +1373,7 @@
       );
 
       /* Ouvre la boîte mail */
-      window.location.href = 'mailto:yac.aitsaid@gmail.com?subject=' + subject + '&body=' + body;
-    });
+      
 
     /* =========================================================
        26) MODALE POLITIQUE DE CONFIDENTIALITÉ
