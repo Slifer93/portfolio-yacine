@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-lang="fr">
+<head>
+  <!-- ========================================================= -->
+  <!-- 1) MÉTADONNÉES GÉNÉRALES                                 -->
+  <!-- ========================================================= -->
+  <!-- Encodage, responsive, SEO simple -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio bilingue de Yacine Aït-Saïd avec sections projets, à propos, FAQ et confidentialité France / Suisse.">
+
+  <!-- Titre affiché dans l’onglet du navigateur -->
+  <title>Portfolio — Yacine Aït-Saïd</title>
+
+  <!-- ========================================================= -->
+  <!-- 2) POLICES GOOGLE FONTS                                  -->
+  <!-- ========================================================= -->
+  <!-- Manrope = titres / Inter = texte courant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       3) VARIABLES GLOBALES
+       ---------------------------------------------------------
+       Ici on peux changer :
+       - les couleurs du site
+       - les tailles de texte
+       - les espacements
+       - les ombres
+       - les bordures arrondies
+    ========================================================= */
+    :root,
+    [data-theme="light"] {
+      /* ---------- Taille des textes ---------- */
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.8rem, 1.4rem + 4vw, 5rem);
+
+      /* ---------- Espacements ---------- */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+
+      /* ---------- Couleurs mode clair ---------- */
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-2: #eff2f5;
+      --text: #12161d;
+      --muted: #5a6573;
+      --faint: #7c8797;
+      --primary: #1f4f6a;
+      --primary-soft: rgba(31, 79, 106, 0.08);
+      --border: rgba(18, 22, 29, 0.10);
+      --line: rgba(18, 22, 29, 0.08);
+
+      /* ---------- Arrondis ---------- */
+      --radius-sm: 0.5rem;
+      --radius-md: 0.9rem;
+      --radius-lg: 1.2rem;
+      --radius-xl: 1.7rem;
+      --radius-full: 9999px;
+
+      /* ---------- Ombres ---------- */
+      --shadow-sm: 0 10px 25px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.10);
+
+      /* ---------- Polices ---------- */
+      --font-body: 'Inter', 'Arial', sans-serif;
+      --font-display: 'Manrope', 'Inter', sans-serif;
+
+      /* ---------- Largeur max du contenu ---------- */
+      --content: 1200px;
+    }
+
+    /* =========================================================
+       4) VARIABLES MODE SOMBRE
+       ---------------------------------------------------------
+       Modification des couleurs dark mode
+    ========================================================= */
+    [data-theme="dark"] {
+      --bg: #0c1117;
+      --surface: #131a22;
+      --surface-2: #1a232d;
+      --text: #edf2f7;
+      --muted: #b8c2cf;
+      --faint: #8f9cac;
+      --primary: #8fb5cf;
+      --primary-soft: rgba(143, 181, 207, 0.10);
+      --border: rgba(237, 242, 247, 0.12);
+      --line: rgba(237, 242, 247, 0.08);
+      --shadow-sm: 0 10px 25px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    /* =========================================================
+       5) RESET / BASE GLOBALE
+       ---------------------------------------------------------
+       Normalise l’affichage du site
+    ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    img,
+    svg,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    /* =========================================================
+       6) CLASSES UTILITAIRES
+       ---------------------------------------------------------
+       Éléments réutilisés partout dans le site
+    ========================================================= */
+    .container {
+      width: min(calc(100% - 2rem), var(--content));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: clamp(2.5rem, 5vw, 5rem) 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+
+    .section-head p {
+      max-width: 72ch;
+      color: var(--muted);
+    }
+
+    /* ---------- Boutons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+
+    /* ---------- Cartes / panneaux ---------- */
+    .panel,
+    .project-card,
+    .faq-item,
+    .contact-card,
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================
+       7) HEADER / MENU
+       ---------------------------------------------------------
+       Barre du haut avec :
+       - logo
+       - navigation
+       - switch FR/EN
+       - bouton dark mode
+    ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: var(--text-sm);
+      color: var(--muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ---------- Boutons langue + thème ---------- */
+    .lang-switch,
+    .theme-toggle {
+      min-height: 46px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .theme-toggle {
+      min-width: 46px;
+      padding: 0 0.9rem;
+    }
+
+    .lang-switch {
+      padding: 0.3rem;
+    }
+
+    .lang-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      opacity: 0.65;
+    }
+
+    .lang-btn.active {
+      opacity: 1;
+      background: var(--surface-2);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* =========================================================
+       8) SECTION HERO / PROFIL
+       ---------------------------------------------------------
+       Première zone visible :
+       - titre
+       - courte présentation
+       - boutons
+       - mini carte profil
+    ========================================================= */
+    .hero {
+      padding: clamp(4rem, 9vw, 7rem) 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 0.55rem;
+      align-items: center;
+      padding: 0.55rem 0.95rem;
+      background: var(--primary-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      color: var(--primary);
+      margin-bottom: var(--space-5);
+    }
+
+    .hero h1 {
+      font-size: var(--text-3xl);
+      max-width: 10ch;
+    }
+
+    .hero p {
+      margin-top: var(--space-5);
+      max-width: 62ch;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-6);
+    }
+
+    .panel {
+      padding: var(--space-8);
+    }
+
+    /* ---------- Photo profil ---------- */
+    .photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- Infos rapides ---------- */
+    .meta {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: var(--space-5);
+    }
+
+    .meta div {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta span:first-child {
+      color: var(--faint);
+    }
+
+    /* =========================================================
+       9) SECTION VIDÉO / PARCOURS
+       ---------------------------------------------------------
+       Vidéo YouTube de présentation du parcours
+    ========================================================= */
+    .video-frame {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      background: #000000;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* =========================================================
+       10) SECTION PROJETS
+       ---------------------------------------------------------
+       Grille de toutes les cartes projet
+    ========================================================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-cover {
+      aspect-ratio: 16 / 10;
+      background: var(--surface-2);
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: var(--space-5);
+    }
+
+    .project-meta {
+      color: var(--faint);
+      font-size: var(--text-sm);
+      margin: 0.6rem 0;
+    }
+
+    .project-body p {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       11) SECTION À PROPOS
+       ---------------------------------------------------------
+       Texte personnel + image à droite
+    ========================================================= */
+    .about-card {
+      padding: clamp(1.25rem, 3vw, 2rem);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .about-text {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .about-visual {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      min-height: 320px;
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================================================
+       12) FAQ
+       ---------------------------------------------------------
+       Questions / réponses avec balise <details>
+    ========================================================= */
+    .faq-list {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .faq-item {
+      padding: var(--space-5);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: var(--text-lg);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-answer {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       13) CONTACT
+       ---------------------------------------------------------
+       Formulaire de contact
+    ========================================================= */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(320px, 760px);
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .contact-card {
+      padding: var(--space-6);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-full);
+    }
+
+    textarea {
+      min-height: 150px;
+      border-radius: var(--radius-lg);
+      resize: vertical;
+    }
+
+    /* =========================================================
+       14) FOOTER
+       ---------------------------------------------------------
+       Bas de page avec copyright + liens
+    ========================================================= */
+    .footer {
+      padding: var(--space-12) 0;
+      border-top: 1px solid var(--line);
+      margin-top: var(--space-8);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--primary);
+    }
+
+    /* =========================================================
+       15) MODALE POLITIQUE DE CONFIDENTIALITÉ
+       ---------------------------------------------------------
+       Fenêtre popup RGPD / nLPD
+    ========================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 120;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      padding: 1.5rem;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .country-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .country-btn {
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .law-card {
+      display: none;
+      padding: 1rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .law-card.active {
+      display: block;
+    }
+
+    .law-card p,
+    .law-card li {
+      color: var(--muted);
+    }
+
+    .law-card ul {
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    /* =========================================================
+       16) RESPONSIVE
+       ---------------------------------------------------------
+       Adaptation tablette / mobile
+    ========================================================= */
+    @media (max-width: 1100px) {
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .projects-grid,
+      .form-row,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .meta div {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================= -->
+  <!-- 17) HEADER                                                -->
+  <!-- ========================================================= -->
+  <!-- Menu principal du site -->
+  <header class="header">
+    <div class="container header-inner">
+
+      <!-- ---------- Logo / nom du site ---------- -->
+      <a href="#top" class="brand">
+        <span class="brand-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 5h5l3 5 3-5h5l-6 9v5h-4v-5L4 5Z" fill="currentColor"></path>
+          </svg>
+        </span>
+        <span>Portfolio</span>
+      </a>
+
+      <!-- ---------- Navigation principale ---------- -->
+      <nav class="nav">
+        <a href="#accueil" data-i18n="nav_home">Accueil</a>
+        <a href="#parcours" data-i18n="nav_path">Parcours</a>
+        <a href="#projets" data-i18n="nav_projects">Projets</a>
+        <a href="#apropos" data-i18n="nav_about">À Propos</a>
+        <a href="#faq" data-i18n="nav_faq">F.A.Q</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- ---------- Actions header : langue + thème ---------- -->
+      <div class="header-actions">
+        <div class="lang-switch">
+          <button class="lang-btn active" type="button" data-lang-btn="fr" aria-label="Version française">FR</button>
+          <button class="lang-btn" type="button" data-lang-btn="en" aria-label="English version">EN</button>
+        </div>
+
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Changer le thème">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 18) CONTENU PRINCIPAL                                     -->
+  <!-- ========================================================= -->
+  <main id="main">
+
+    <!-- ======================================================= -->
+    <!-- SECTION HERO / PROFIL                                   -->
+    <!-- ======================================================= -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+
+        <!-- ---------- Colonne gauche : intro ---------- -->
+        <div>
+          <span class="eyebrow" data-i18n="eyebrow">Cybersécurité • Portfolio professionnel</span>
+          <h1 data-i18n="hero_title">Profil</h1>
+          <p data-i18n="hero_text">Étudiant en troisième année de BUT Réseau & Télécommunication, futur architecte cybersécurité.</p>
+
+          <!-- Boutons principaux -->
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projets" data-i18n="hero_btn_projects">Voir les projets</a>
+            <a class="btn btn-secondary" href="./CV_Yacine-AIT-SAID.pdf" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_cv">Télécharger le CV</a>
+          </div>
+        </div>
+
+        <!-- ---------- Colonne droite : mini carte profil ---------- -->
+        <aside class="panel" id="competences">
+          <div class="photo">
+            <img src="./portrait-yacine.jpg" alt="Portrait de Yacine" width="500" height="500" loading="lazy">
+          </div>
+
+          <div class="meta">
+            <div><span data-i18n="meta_name">Nom</span><strong>Yacine Aït-Saïd</strong></div>
+            <div><span data-i18n="meta_domain">Domaine</span><strong data-i18n="meta_domain_value">Cybersécurité</strong></div>
+            <div><span data-i18n="meta_city">Ville</span><strong>Versoix / Genève</strong></div>
+            <div><span>Email</span><strong><a href="mailto:yac.aitsaid@gmail.com">yac.aitsaid@gmail.com</a></strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION PARCOURS / VIDÉO                                -->
+    <!-- ======================================================= -->
+    <section class="section" id="parcours">
+      <div class="container">
+        <div class="section-head">
+          <div><h2 data-i18n="school_title">Parcours Scolaire Actuel</h2></div>
+          <p data-i18n="school_text">Voici une vidéo d'introduction de ma formation que j'ai pu effectuer.</p>
+        </div>
+
+        <!-- Vidéo intégrée YouTube -->
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/yHh05ukwo0k?start=142"
+            title="Parcours scolaire actuel de Yacine"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION PROJETS                                         -->
+    <!-- ======================================================= -->
+    <!-- Ici on peux :
+         - ajouter une nouvelle carte projet
+         - supprimer une carte
+         - modifier une image / date / texte / lien -->
+    <section class="section" id="projets">
+      <div class="container">
+        <div class="section-head">
+          <div><h2 data-i18n="projects_title">Projets réalisés</h2></div>
+          <p data-i18n="projects_text">Voici les projets que j'ai réalisée durant mon parcours scolaire.</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- ===================== PROJET 1 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/484cb293384f5f733f453ae4c7048549d2c0a529.jpg" alt="Interface SQL et base de données" width="1200" height="630" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project1_title">Mettre en place une solution informatique pour l'entreprise</h3>
+              <div class="project-meta" data-i18n="project1_date">Mars 2024</div>
+              <p data-i18n="project1_desc">Introduction à la modélisation d’une base de données, à l’aide du langage SQL.</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://docs.google.com/presentation/d/1cXFiEoMrVW3pdP3Q-W5qFJAQPLMKrJuJ/edit" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+          <!-- ===================== PROJET 2 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2af9b250b2c3991e62eb0424bca8e155c5674acc.jpg" alt="Développement collaboratif et application communicante" width="1800" height="1375" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project2_title">Applications communicantes</h3>
+              <div class="project-meta" data-i18n="project2_date">Décembre 2024</div>
+              <p data-i18n="project2_desc">Création d’un blindtest musicale communicant avec plusieurs utilisateurs.</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://gamma.app/docs/SAE-302-Blindtest-Musical-en-Python-yoxlnrd42ds28pq" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+          <!-- ===================== PROJET 3 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2dc96b54cc71596685e3771d04a4494e83d631fb.jpg" alt="Topologie réseau multi-site" width="1154" height="592" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project3_title">Concevoir un réseau informatique multi-site</h3>
+              <div class="project-meta" data-i18n="project3_date">Janvier 2025</div>
+              <p data-i18n="project3_desc">Réalisation d’un rapport lié à la conception d’un réseau multi-site.</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://docs.google.com/document/d/1qp5C2C4Wv8KD_0LFpiPpeESW4XNCFVcFnwJWEWIX8Zw/edit?tab=t.0" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+          <!-- ===================== PROJET 4 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/412af97e941b4c3ec8238ce2def2c2b427ea7f72.jpg" alt="Pentesting et cybersécurité" width="1024" height="604" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project4_title">Pentesting : test d'intrusion</h3>
+              <div class="project-meta" data-i18n="project4_date">Janvier 2025</div>
+              <p data-i18n="project4_desc">Simulation d’attaque sur la sensibilité d’exploitation de faille avec des outils de type Nessus ou Metasploitable.</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://docs.google.com/document/d/1pVxef0_w5CbolsuO3vEToCjuxYsIB9US_yLiudtBPtA/edit?tab=t.0" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+          <!-- ===================== PROJET 5 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://picsum.photos/seed/network-technician-stage/1200/700" alt="Technicien réseau en salle serveur" width="1200" height="700" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project5_title">Stage en Technicien Réseau</h3>
+              <div class="project-meta" data-i18n="project5_date">5 Mai - 30 Juin 2025</div>
+              <p data-i18n="project5_desc">Rapport de stage dans le domaine de la supervision réseau et la gestion des parcs informatiques !</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://docs.google.com/document/d/142_rGKt7v1FuS0OZiPv5ub-s7U2e7KzmWPK9Fc6mKuU/edit?tab=t.0#heading=h.tnac92kpwkgr" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+          <!-- ===================== PROJET 6 ===================== -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f070ecf651fe86e99de4779a559956a507e94320.jpg" alt="Gestion de projet sur Trello" width="1368" height="749" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project6_title">Supervision d'un projet en groupe</h3>
+              <div class="project-meta" data-i18n="project6_date">Décembre 2025</div>
+              <p data-i18n="project6_desc">Création d'un Morpion personnalisable via la boutique en jeu. Conduite d'un travail de groupe complet sur GitHub et Trello pour la gestion du projet !</p>
+              <p style="margin-top: 1rem;">
+                <a class="btn btn-primary" href="https://gamma.app/docs/MASTER-MORPION--znu4wjr3idd0ia1" target="_blank" rel="noopener noreferrer" data-i18n="read_btn">Lire</a>
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION À PROPOS                                        -->
+    <!-- ======================================================= -->
+    <section class="section" id="apropos">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-grid">
+
+            <!-- Texte présentation -->
+            <div class="about-text">
+              <h2 data-i18n="about_title">À Propos</h2>
+              <p data-i18n="about_p1">Salut ! Je suis un étudiant passionné par le monde de l'informatique mais surtout dans le domaine des réseaux et de la cybersécurité. Chaque jour, je me plonge dans des défis techniques qui me font prendre conscience de l'envers du décor. Qui aurait cru que les câbles et les protocoles pouvaient être si captivants ?</p>
+              <p data-i18n="about_p2">Mon objectif ? Devenir un architecte en Cybersécurité. Je suis déterminé à consolider les données des entreprises contre les cybercriminels.</p>
+              <p data-i18n="about_p3">Quand je ne suis pas en train de m'exercer sur les différents travaux pratiques, vous me trouverez probablement en train de faire du shopping en suivant les tendances actuelles ou de jouer à des jeux vidéos. Ou bien vous me verrez dans mon dressing avec énormément de sneakers !</p>
+            </div>
+
+            <!-- Image à droite -->
+            <div class="about-visual">
+              <img src="https://picsum.photos/seed/cyber-workspace-yacine/900/900" alt="Espace de travail illustrant le monde informatique" width="900" height="900" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION FAQ                                             -->
+    <!-- ======================================================= -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div><h2 data-i18n="faq_title">Questions Fréquemment Posées</h2></div>
+        </div>
+
+        <div class="faq-list">
+
+          <!-- FAQ 1 -->
+          <details class="faq-item" open>
+            <summary><span data-i18n="faq_q1">Pourquoi choisir la cybersécurité ?</span> <span>⌃</span></summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a1">Parce que les hackers ne dorment jamais !</p>
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="faq-item">
+            <summary><span data-i18n="faq_q2">Quels sont ses projets futurs ?</span> <span>⌄</span></summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a2">Devenir un architecte de la cybersécurité ! Je pense même me rediriger vers l'IA suite à mon stage que j'ai réalisé en 3ème année.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="faq-item">
+            <summary><span data-i18n="faq_q3">Comment apprend-il de nouvelles compétences ?</span> <span>⌄</span></summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a3">En faisant énormément de travaux pratiques et en suivant les dernières informations ! Mais surtout les différents stage que j'ai pu réalisé depuis 2025.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="faq-item">
+            <summary><span data-i18n="faq_q4">A-t-il des certifications ?</span> <span>⌄</span></summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a4">Actuellement, je n'ai pas encore eu l'opportunité d'y participer, mais j'attends la fin de mes études pour me perfectionner dans les spécialités que je souhaite !</p>
+            </div>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details class="faq-item">
+            <summary><span data-i18n="faq_q5">Pourquoi a-t-il choisi l'architecture cybersécurité ?</span> <span>⌄</span></summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a5">Il y a de nombreuses opportunités dans le domaine où l'IA est utilisée. C'est le futur !</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SECTION CONTACT                                         -->
+    <!-- ======================================================= -->
+    <section class="section" id="contact">
+      <div class="container grid-2">
+        <article class="contact-card">
+          <h2 data-i18n="contact_title">Contactez-moi</h2>
+          <p style="margin-top: 1rem; color: var(--muted);" data-i18n="contact_text">Une fois que ce formulaire sera envoyé, il se conformera immédiatement aux lois de confidentialité des pays suivants : France / Suisse.</p>
+
+          <!-- Formulaire -->
+          <form class="contact-form" id="contactForm">
+
+            <!-- Ligne nom + email -->
+            <div class="form-row">
+              <input type="text" id="name" name="name" data-i18n-placeholder="name_placeholder" placeholder="Nom" required>
+              <input type="email" id="email" name="email" data-i18n-placeholder="email_placeholder" placeholder="Email" required>
+            </div>
+
+            <!-- Téléphone -->
+            <input type="tel" id="phone" name="phone" data-i18n-placeholder="phone_placeholder" placeholder="Téléphone">
+
+            <!-- Message -->
+            <textarea id="message" name="message" data-i18n-placeholder="message_placeholder" placeholder="Message" required></textarea>
+
+            <!-- Bouton envoyer -->
+            <button class="btn btn-primary" type="submit" data-i18n="send_btn">Envoyer</button>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- 19) FOOTER                                                -->
+  <!-- ========================================================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Portfolio by Yacine</p>
+      <p>
+        <a href="#faq">F.A.Q</a> ·
+        <a href="#contact" data-i18n="nav_contact">Contact</a> ·
+        <a href="#" id="privacyFooterBtn" data-i18n="privacy_footer">Politique de confidentialité</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- 20) MODALE CONFIDENTIALITÉ                                -->
+  <!-- ========================================================= -->
+  <div class="modal-backdrop" id="privacyModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+
+      <!-- Titre + bouton fermer -->
+      <div class="modal-head">
+        <div>
+          <h2 id="privacyModalTitle" data-i18n="privacy_modal_title">Politique de confidentialité</h2>
+          <p style="color: var(--muted); margin-top: 0.45rem;" data-i18n="privacy_modal_text">Pouvez-vous me dire de quel pays vous venez ?</p>
+        </div>
+
+        <button type="button" id="closePrivacyModal" class="btn btn-secondary" data-i18n="close_btn">Fermer</button>
+      </div>
+
+      <!-- Choix du pays -->
+      <div class="country-buttons">
+        <button type="button" class="country-btn" data-country="france">France</button>
+        <button type="button" class="country-btn" data-country="suisse">Suisse</button>
+      </div>
+
+      <!-- Bloc FRANCE -->
+      <div class="law-card" id="law-france">
+        <h3>France — RGPD</h3>
+        <p>Le Règlement général sur la protection des données s’applique lorsque le pays sélectionné est la France.</p>
+        <ul>
+          <li><a href="./politique-confidentialite-france-rgpd.html" target="_blank" rel="noopener noreferrer">Ouvrir la page RGPD en HTML</a></li>
+          <li><a href="./politique-confidentialite-france-rgpd.md" target="_blank" rel="noopener noreferrer">Ouvrir la version RGPD en Markdown</a></li>
+        </ul>
+      </div>
+
+      <!-- Bloc SUISSE -->
+      <div class="law-card" id="law-suisse">
+        <h3>Suisse — nLPD</h3>
+        <p>La nouvelle loi fédérale sur la protection des données s’applique lorsque le pays sélectionné est la Suisse.</p>
+        <ul>
+          <li><a href="./politique-confidentialite-suisse-nlpd.html" target="_blank" rel="noopener noreferrer">Ouvrir la page nLPD en HTML</a></li>
+          <li><a href="./politique-confidentialite-suisse-nlpd.md" target="_blank" rel="noopener noreferrer">Ouvrir la version nLPD en Markdown</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================
+       21) TRADUCTIONS FR / EN
+       ---------------------------------------------------------
+       Si l'on veux changer un texte :
+       - modifie la version FR dans "fr"
+       - modifie la version EN dans "en"
+    ========================================================= */
+    const translations = {
+      fr: {
+        nav_home: 'Accueil',
+        nav_path: 'Parcours',
+        nav_projects: 'Projets',
+        nav_about: 'À Propos',
+        nav_faq: 'F.A.Q',
+        nav_contact: 'Contact',
+        eyebrow: 'Cybersécurité • Portfolio professionnel',
+        hero_title: 'Profil',
+        hero_text: 'Étudiant en troisième année de BUT Réseau & Télécommunication, futur architecte cybersécurité.',
+        hero_btn_projects: 'Voir les projets',
+        hero_btn_cv: 'Télécharger le CV',
+        meta_name: 'Nom',
+        meta_domain: 'Domaine',
+        meta_domain_value: 'Cybersécurité',
+        meta_city: 'Ville',
+        school_title: 'Parcours Scolaire Actuel',
+        school_text: "Voici une vidéo d'introduction de ma formation que j'ai pu effectuer.",
+        projects_title: 'Projets réalisés',
+        projects_text: "Voici les projets que j'ai réalisée durant mon parcours scolaire.",
+        project1_title: "Mettre en place une solution informatique pour l'entreprise",
+        project1_date: 'Mars 2024',
+        project1_desc: 'Introduction à la modélisation d’une base de données, à l’aide du langage SQL.',
+        project2_title: 'Applications communicantes',
+        project2_date: 'Décembre 2024',
+        project2_desc: 'Création d’un blindtest musicale communicant avec plusieurs utilisateurs.',
+        project3_title: 'Concevoir un réseau informatique multi-site',
+        project3_date: 'Janvier 2025',
+        project3_desc: 'Réalisation d’un rapport lié à la conception d’un réseau multi-site.',
+        project4_title: "Pentesting : test d'intrusion",
+        project4_date: 'Janvier 2025',
+        project4_desc: 'Simulation d’attaque sur la sensibilité d’exploitation de faille avec des outils de type Nessus ou Metasploitable.',
+        project5_title: 'Stage en Technicien Réseau',
+        project5_date: '5 Mai - 30 Juin 2025',
+        project5_desc: 'Rapport de stage dans le domaine de la supervision réseau et la gestion des parcs informatiques !',
+        project6_title: "Supervision d'un projet en groupe",
+        project6_date: 'Décembre 2025',
+        project6_desc: "Création d'un Morpion personnalisable via la boutique en jeu. Conduite d'un travail de groupe complet sur GitHub et Trello pour la gestion du projet !",
+        read_btn: 'Lire',
+        about_title: 'À Propos',
+        about_p1: "Salut ! Je suis un étudiant passionné par le monde de l'informatique mais surtout dans le domaine des réseaux et de la cybersécurité. Chaque jour, je me plonge dans des défis techniques qui me font prendre conscience de l'envers du décor. Qui aurait cru que les câbles et les protocoles pouvaient être si captivants ?",
+        about_p2: 'Mon objectif ? Devenir un architecte en Cybersécurité. Je suis déterminé à consolider les données des entreprises contre les cybercriminels.',
+        about_p3: "Quand je ne suis pas en train de m'exercer sur les différents travaux pratiques, vous me trouverez probablement en train de faire du shopping en suivant les tendances actuelles ou de jouer à des jeux vidéos. Ou bien vous me verrez dans mon dressing avec énormément de sneakers !",
+        faq_title: 'Questions Fréquemment Posées',
+        faq_q1: 'Pourquoi choisir la cybersécurité ?',
+        faq_a1: 'Parce que les hackers ne dorment jamais !',
+        faq_q2: 'Quels sont ses projets futurs ?',
+        faq_a2: "Devenir un architecte de la cybersécurité ! Je pense même me rediriger vers l'IA suite à mon stage que j'ai réalisé en 3ème année.",
+        faq_q3: 'Comment apprend-il de nouvelles compétences ?',
+        faq_a3: "En faisant énormément de travaux pratiques et en suivant les dernières informations ! Mais surtout les différents stage que j'ai pu réalisé depuis 2025.",
+        faq_q4: 'A-t-il des certifications ?',
+        faq_a4: "Actuellement, je n'ai pas encore eu l'opportunité d'y participer, mais j'attends la fin de mes études pour me perfectionner dans les spécialités que je souhaite !",
+        faq_q5: "Pourquoi a-t-il choisi l'architecture cybersécurité ?",
+        faq_a5: "Il y a de nombreuses opportunités dans le domaine où l'IA est utilisée. C'est le futur !",
+        contact_title: 'Contactez-moi',
+        contact_text: 'Une fois que ce formulaire sera envoyé, il se conformera immédiatement aux lois de confidentialité des pays suivants : France / Suisse.',
+        name_placeholder: 'Nom',
+        email_placeholder: 'Email',
+        phone_placeholder: 'Téléphone',
+        message_placeholder: 'Message',
+        send_btn: 'Envoyer',
+        privacy_footer: 'Politique de confidentialité',
+        privacy_modal_title: 'Politique de confidentialité',
+        privacy_modal_text: 'Pouvez-vous me dire de quel pays vous venez ?',
+        close_btn: 'Fermer'
+      },
+      en: {
+        nav_home: 'Home',
+        nav_path: 'Current studies',
+        nav_projects: 'Projects',
+        nav_about: 'About',
+        nav_faq: 'FAQ',
+        nav_contact: 'Contact',
+        eyebrow: 'Cybersecurity • Professional portfolio',
+        hero_title: 'Profile',
+        hero_text: 'Third-year student in BUT Network & Telecommunications, future cybersecurity architect.',
+        hero_btn_projects: 'View projects',
+        hero_btn_cv: 'Download CV',
+        meta_name: 'Name',
+        meta_domain: 'Field',
+        meta_domain_value: 'Cybersecurity',
+        meta_city: 'City',
+        school_title: 'Current Academic Path',
+        school_text: 'Here is an introduction video of the degree I was able to complete.',
+        projects_title: 'Completed projects',
+        projects_text: 'Here are the projects I completed during my academic journey.',
+        project1_title: 'Implement an IT solution for a company',
+        project1_date: 'March 2024',
+        project1_desc: 'Introduction to database modeling using SQL.',
+        project2_title: 'Communicating applications',
+        project2_date: 'December 2024',
+        project2_desc: 'Creation of a multiplayer communicating music blind test.',
+        project3_title: 'Design a multi-site computer network',
+        project3_date: 'January 2025',
+        project3_desc: 'Production of a report related to multi-site network design.',
+        project4_title: 'Pentesting: intrusion test',
+        project4_date: 'January 2025',
+        project4_desc: 'Attack simulation focused on vulnerability exploitation awareness with tools such as Nessus or Metasploitable.',
+        project5_title: 'Network Technician Internship',
+        project5_date: 'May 5 - June 30, 2025',
+        project5_desc: 'Internship report focused on network supervision and IT asset management!',
+        project6_title: 'Group Project Supervision',
+        project6_date: 'December 2025',
+        project6_desc: 'Creation of a customizable Tic-Tac-Toe game through an in-game shop. Full group project management carried out with GitHub and Trello!',
+        read_btn: 'Read',
+        about_title: 'About',
+        about_p1: 'Hi! I am a student passionate about the world of IT, especially networking and cybersecurity. Every day, I dive into technical challenges that help me understand what happens behind the scenes. Who would have thought that cables and protocols could be so fascinating?',
+        about_p2: 'My goal? To become a cybersecurity architect. I am determined to strengthen company data against cybercriminals.',
+        about_p3: 'When I am not practicing through hands-on work, you will probably find me shopping while following current trends or playing video games. Or you might simply find me in my dressing room with lots of sneakers!',
+        faq_title: 'Frequently Asked Questions',
+        faq_q1: 'Why choose cybersecurity?',
+        faq_a1: 'Because hackers never sleep!',
+        faq_q2: 'What are his future projects?',
+        faq_a2: 'To become a cybersecurity architect! I am even thinking about moving toward AI after the internship I completed in my third year.',
+        faq_q3: 'How does he learn new skills?',
+        faq_a3: 'By doing a lot of hands-on practice and keeping up with the latest information! But above all through the different internships I have completed since 2025.',
+        faq_q4: 'Does he have certifications?',
+        faq_a4: 'At the moment, I have not yet had the opportunity to pursue them, but I am waiting until the end of my studies to improve in the specialties I truly want!',
+        faq_q5: 'Why did he choose cybersecurity architecture?',
+        faq_a5: 'There are many opportunities in this field where AI is used. It is the future!',
+        contact_title: 'Contact me',
+        contact_text: 'Once this form is sent, it will immediately comply with the privacy laws of the following countries: France / Switzerland.',
+        name_placeholder: 'Name',
+        email_placeholder: 'Email',
+        phone_placeholder: 'Phone',
+        message_placeholder: 'Message',
+        send_btn: 'Send',
+        privacy_footer: 'Privacy policy',
+        privacy_modal_title: 'Privacy policy',
+        privacy_modal_text: 'Could you tell me which country you are from?',
+        close_btn: 'Close'
+      }
+    };
+
+    /* =========================================================
+       22) FONCTION CHANGEMENT DE LANGUE
+       ---------------------------------------------------------
+       Remplace automatiquement les textes FR / EN
+    ========================================================= */
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+
+      /* Active visuellement le bon bouton FR / EN */
+      document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.langBtn === lang);
+      });
+
+      /* Remplace les textes simples */
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      /* Remplace les placeholders des champs */
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.dataset.i18nPlaceholder;
+        if (translations[lang][key]) {
+          el.setAttribute('placeholder', translations[lang][key]);
+        }
+      });
+    }
+
+    /* =========================================================
+       23) ÉVÉNEMENTS SUR LES BOUTONS DE LANGUE
+    ========================================================= */
+    document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+      btn.type = 'button';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setLanguage(this.dataset.langBtn);
+      });
+    });
+
+    /* Langue par défaut au chargement */
+    setLanguage('fr');
+
+    /* =========================================================
+       24) DARK MODE / LIGHT MODE
+       ---------------------------------------------------------
+       Bouton lune / soleil
+    ========================================================= */
+    (function () {
+      const btn = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      if (!btn) return;
+
+      /* Détection automatique selon le système */
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+      /* Applique le thème */
+      const apply = (value) => {
+        root.setAttribute('data-theme', value);
+        btn.textContent = value === 'dark' ? '☀' : '☾';
+        btn.setAttribute('aria-label', value === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre');
+      };
+
+      apply(theme);
+
+      /* Changement manuel au clic */
+      btn.type = 'button';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        theme = theme === 'dark' ? 'light' : 'dark';
+        apply(theme);
+      });
+    })();
+
+    /* =========================================================
+       25) FORMULAIRE DE CONTACT
+       ---------------------------------------------------------
+       Ouvre le client mail avec les infos remplies
+    ========================================================= */
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const isEn = document.documentElement.getAttribute('data-lang') === 'en';
+
+      /* Sujet du mail selon la langue */
+      const subject = encodeURIComponent(
+        isEn ? 'Contact request from portfolio' : 'Prise de contact depuis le portfolio'
+      );
+
+      /* Corps du mail */
+      const body = encodeURIComponent(
+        (isEn ? 'Name: ' : 'Nom : ') + name + '\n' +
+        'Email : ' + email + '\n' +
+        (isEn ? 'Phone: ' : 'Téléphone : ') + phone + '\n\n' +
+        (isEn ? 'Message:\n' : 'Message :\n') + message
+      );
+
+      /* Ouvre la boîte mail */
+      window.location.href = 'mailto:yac.aitsaid@gmail.com?subject=' + subject + '&body=' + body;
+    });
+
+    /* =========================================================
+       26) MODALE POLITIQUE DE CONFIDENTIALITÉ
+       ---------------------------------------------------------
+       - ouverture
+       - fermeture
+       - affichage France / Suisse
+    ========================================================= */
+    const modal = document.getElementById('privacyModal');
+    const footerBtn = document.getElementById('privacyFooterBtn');
+    const closeBtn = document.getElementById('closePrivacyModal');
+
+    /* Références vers les deux blocs de lois */
+    const laws = {
+      france: document.getElementById('law-france'),
+      suisse: document.getElementById('law-suisse')
+    };
+
+    /* Ouvre la popup */
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    /* Ferme la popup et masque les blocs */
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      Object.values(laws).forEach((el) => el.classList.remove('active'));
+    }
+
+    /* Ouvre la modale via le lien footer */
+    footerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+
+    /* Bouton fermer */
+    closeBtn.addEventListener('click', closeModal);
+
+    /* Fermer si on clique sur le fond noir */
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    /* Choix du pays */
+    document.querySelectorAll('[data-country]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        Object.values(laws).forEach((el) => el.classList.remove('active'));
+        laws[btn.dataset.country].classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
