@@ -7,7 +7,7 @@
   <!-- Encodage, responsive, SEO simple -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio bilingue de Yacine Aït-Saïd avec sections projets, à propos, FAQ et confidentialité France / Suisse.">
+  <meta name="description" content="Portfolio bilingue de Yacine Aït-Saïd avec sections projets, compétences, à propos, FAQ et confidentialité France / Suisse.">
 
   <!-- Titre affiché dans l’onglet du navigateur -->
   <title>Portfolio — Yacine Aït-Saïd</title>
@@ -480,6 +480,83 @@
     }
 
     /* =========================================================
+       10-BIS) SECTION COMPÉTENCES
+       ---------------------------------------------------------
+       Section placée entre "Projets réalisés" et "À Propos"
+       Style des sous-titres avec bulle rectangulaire arrondie
+    ========================================================= */
+    .section-head-center {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+
+    .skill-card {
+      background: transparent;
+    }
+
+    .skill-cover {
+      aspect-ratio: 16 / 12;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .skill-body {
+      padding-top: var(--space-5);
+    }
+
+    .skill-body h3 {
+      font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.2rem);
+      margin-bottom: var(--space-5);
+    }
+
+    .skill-pill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-pill-label {
+      font-size: var(--text-base);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .skill-pill-level {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================
        11) SECTION À PROPOS
        ---------------------------------------------------------
        Texte personnel + image à droite
@@ -709,6 +786,10 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .hero-grid,
       .grid-2,
       .about-grid {
@@ -724,12 +805,15 @@
 
       .projects-grid,
       .form-row,
-      .grid-2 {
+      .grid-2,
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
-      .meta div {
+      .meta div,
+      .skill-pill-row {
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -758,6 +842,7 @@
         <a href="#accueil" data-i18n="nav_home">Accueil</a>
         <a href="#parcours" data-i18n="nav_path">Parcours</a>
         <a href="#projets" data-i18n="nav_projects">Projets</a>
+        <a href="#competences" data-i18n="nav_skills">Compétences</a>
         <a href="#apropos" data-i18n="nav_about">À Propos</a>
         <a href="#faq" data-i18n="nav_faq">F.A.Q</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -800,7 +885,7 @@
         </div>
 
         <!-- ---------- Colonne droite : mini carte profil ---------- -->
-        <aside class="panel" id="competences">
+        <aside class="panel">
           <div class="photo">
             <img src="./portrait-yacine.jpg" alt="Portrait de Yacine" width="500" height="500" loading="lazy">
           </div>
@@ -949,6 +1034,124 @@
       </div>
     </section>
 
+    <!-- =======================================================
+         SECTION COMPÉTENCES
+         À placer entre la section "Projets réalisés" et "À Propos"
+    ======================================================== -->
+    <section class="section" id="competences">
+      <div class="container">
+        <div class="section-head section-head-center">
+          <div>
+            <h2 data-i18n="skills_title">Compétences</h2>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Carte 1 : Langages de programmation -->
+          <article class="skill-card">
+            <div class="skill-cover">
+              <img src="./competence-programmation.jpg" alt="Langages de programmation" width="1200" height="800" loading="lazy">
+            </div>
+            <div class="skill-body">
+              <h3 data-i18n="skills_card1_title">Language de programmation</h3>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card1_item1_label">JavaScript</span>
+                <span class="skill-pill-level" data-i18n="skills_card1_item1_level">Débutant</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card1_item2_label">SQL, CSS</span>
+                <span class="skill-pill-level" data-i18n="skills_card1_item2_level">Intermédiaire</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card1_item3_label">Python, HTML, Bash</span>
+                <span class="skill-pill-level" data-i18n="skills_card1_item3_level">Avancé</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carte 2 : Réseaux -->
+          <article class="skill-card">
+            <div class="skill-cover">
+              <img src="./competence-reseau.jpg" alt="Administrer les réseaux" width="1200" height="800" loading="lazy">
+            </div>
+            <div class="skill-body">
+              <h3 data-i18n="skills_card2_title">Administrer les réseaux</h3>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card2_item1_label">Architecture réseau</span>
+                <span class="skill-pill-level" data-i18n="skills_card2_item1_level">Intermédiaire</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card2_item2_label">Transmission de la fibre optique</span>
+                <span class="skill-pill-level" data-i18n="skills_card2_item2_level">Intermédiaire</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card2_item3_label">Support de transmission</span>
+                <span class="skill-pill-level" data-i18n="skills_card2_item3_level">Avancé</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carte 3 : Outils / OS -->
+          <article class="skill-card">
+            <div class="skill-cover">
+              <img src="./competence-outils.jpg" alt="Outils et systèmes" width="1200" height="800" loading="lazy">
+            </div>
+            <div class="skill-body">
+              <h3 data-i18n="skills_card3_title">Outils / OS</h3>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card3_item1_label">VS Code</span>
+                <span class="skill-pill-level" data-i18n="skills_card3_item1_level">Avancé</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card3_item2_label">EduPython</span>
+                <span class="skill-pill-level" data-i18n="skills_card3_item2_level">Intermédiaire</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card3_item3_label">Linux</span>
+                <span class="skill-pill-level" data-i18n="skills_card3_item3_level">Avancé</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card3_item4_label">Windows</span>
+                <span class="skill-pill-level" data-i18n="skills_card3_item4_level">Avancé</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carte 4 : Langues -->
+          <article class="skill-card">
+            <div class="skill-cover">
+              <img src="./competence-langue.jpg" alt="Langues" width="1200" height="800" loading="lazy">
+            </div>
+            <div class="skill-body">
+              <h3 data-i18n="skills_card4_title">Langue</h3>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card4_item1_label">Français</span>
+                <span class="skill-pill-level" data-i18n="skills_card4_item1_level">Natif</span>
+              </div>
+
+              <div class="skill-pill-row">
+                <span class="skill-pill-label" data-i18n="skills_card4_item2_label">Anglais</span>
+                <span class="skill-pill-level" data-i18n="skills_card4_item2_level">B1</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ======================================================= -->
     <!-- SECTION À PROPOS                                        -->
     <!-- ======================================================= -->
@@ -1052,7 +1255,7 @@
 
             <!-- Message -->
             <textarea id="message" name="message" data-i18n-placeholder="message_placeholder" placeholder="Message" required></textarea>
-            
+
             <!-- Reception dans ma boîte mail -->
             <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio de Yacine">
             <input type="hidden" name="_captcha" value="false">
@@ -1138,6 +1341,7 @@
         nav_home: 'Accueil',
         nav_path: 'Parcours',
         nav_projects: 'Projets',
+        nav_skills: 'Compétences',
         nav_about: 'À Propos',
         nav_faq: 'F.A.Q',
         nav_contact: 'Contact',
@@ -1172,6 +1376,40 @@
         project6_title: "Supervision d'un projet en groupe",
         project6_date: 'Décembre 2025',
         project6_desc: "Création d'un Morpion personnalisable via la boutique en jeu. Conduite d'un travail de groupe complet sur GitHub et Trello pour la gestion du projet !",
+
+        skills_title: 'Compétences',
+        skills_card1_title: 'Language de programmation',
+        skills_card1_item1_label: 'JavaScript',
+        skills_card1_item1_level: 'Débutant',
+        skills_card1_item2_label: 'SQL, CSS',
+        skills_card1_item2_level: 'Intermédiaire',
+        skills_card1_item3_label: 'Python, HTML, Bash',
+        skills_card1_item3_level: 'Avancé',
+
+        skills_card2_title: 'Administrer les réseaux',
+        skills_card2_item1_label: 'Architecture réseau',
+        skills_card2_item1_level: 'Intermédiaire',
+        skills_card2_item2_label: 'Transmission de la fibre optique',
+        skills_card2_item2_level: 'Intermédiaire',
+        skills_card2_item3_label: 'Support de transmission',
+        skills_card2_item3_level: 'Avancé',
+
+        skills_card3_title: 'Outils / OS',
+        skills_card3_item1_label: 'VS Code',
+        skills_card3_item1_level: 'Avancé',
+        skills_card3_item2_label: 'EduPython',
+        skills_card3_item2_level: 'Intermédiaire',
+        skills_card3_item3_label: 'Linux',
+        skills_card3_item3_level: 'Avancé',
+        skills_card3_item4_label: 'Windows',
+        skills_card3_item4_level: 'Avancé',
+
+        skills_card4_title: 'Langue',
+        skills_card4_item1_label: 'Français',
+        skills_card4_item1_level: 'Natif',
+        skills_card4_item2_label: 'Anglais',
+        skills_card4_item2_level: 'B1',
+
         read_btn: 'Lire',
         about_title: 'À Propos',
         about_p1: "Salut ! Je suis un étudiant passionné par le monde de l'informatique mais surtout dans le domaine des réseaux et de la cybersécurité. Chaque jour, je me plonge dans des défis techniques qui me font prendre conscience de l'envers du décor. Qui aurait cru que les câbles et les protocoles pouvaient être si captivants ?",
@@ -1204,6 +1442,7 @@
         nav_home: 'Home',
         nav_path: 'Current studies',
         nav_projects: 'Projects',
+        nav_skills: 'Skills',
         nav_about: 'About',
         nav_faq: 'FAQ',
         nav_contact: 'Contact',
@@ -1238,6 +1477,40 @@
         project6_title: 'Group Project Supervision',
         project6_date: 'December 2025',
         project6_desc: 'Creation of a customizable Tic-Tac-Toe game through an in-game shop. Full group project management carried out with GitHub and Trello!',
+
+        skills_title: 'Skills',
+        skills_card1_title: 'Programming languages',
+        skills_card1_item1_label: 'JavaScript',
+        skills_card1_item1_level: 'Beginner',
+        skills_card1_item2_label: 'SQL, CSS',
+        skills_card1_item2_level: 'Intermediate',
+        skills_card1_item3_label: 'Python, HTML, Bash',
+        skills_card1_item3_level: 'Advanced',
+
+        skills_card2_title: 'Network administration',
+        skills_card2_item1_label: 'Network architecture',
+        skills_card2_item1_level: 'Intermediate',
+        skills_card2_item2_label: 'Fiber optic transmission',
+        skills_card2_item2_level: 'Intermediate',
+        skills_card2_item3_label: 'Transmission support',
+        skills_card2_item3_level: 'Advanced',
+
+        skills_card3_title: 'Tools / OS',
+        skills_card3_item1_label: 'VS Code',
+        skills_card3_item1_level: 'Advanced',
+        skills_card3_item2_label: 'EduPython',
+        skills_card3_item2_level: 'Intermediate',
+        skills_card3_item3_label: 'Linux',
+        skills_card3_item3_level: 'Advanced',
+        skills_card3_item4_label: 'Windows',
+        skills_card3_item4_level: 'Advanced',
+
+        skills_card4_title: 'Languages',
+        skills_card4_item1_label: 'French',
+        skills_card4_item1_level: 'Native',
+        skills_card4_item2_label: 'English',
+        skills_card4_item2_level: 'B1',
+
         read_btn: 'Read',
         about_title: 'About',
         about_p1: 'Hi! I am a student passionate about the world of IT, especially networking and cybersecurity. Every day, I dive into technical challenges that help me understand what happens behind the scenes. Who would have thought that cables and protocols could be so fascinating?',
@@ -1349,31 +1622,9 @@
     /* =========================================================
        25) FORMULAIRE DE CONTACT
        ---------------------------------------------------------
-       Ouvre le client mail avec les infos remplies
+       Le formulaire utilise maintenant FormSubmit
+       donc aucun script mailto n'est nécessaire ici
     ========================================================= */
-    
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const isEn = document.documentElement.getAttribute('data-lang') === 'en';
-
-      /* Sujet du mail selon la langue */
-      const subject = encodeURIComponent(
-        isEn ? 'Contact request from portfolio' : 'Prise de contact depuis le portfolio'
-      );
-
-      /* Corps du mail */
-      const body = encodeURIComponent(
-        (isEn ? 'Name: ' : 'Nom : ') + name + '\n' +
-        'Email : ' + email + '\n' +
-        (isEn ? 'Phone: ' : 'Téléphone : ') + phone + '\n\n' +
-        (isEn ? 'Message:\n' : 'Message :\n') + message
-      );
-
-      /* Ouvre la boîte mail */
-      
 
     /* =========================================================
        26) MODALE POLITIQUE DE CONFIDENTIALITÉ
